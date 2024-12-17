@@ -4,10 +4,10 @@ This README provides the steps and requirements to run a Selenium script using F
 
 ## Prerequisites
 
-1**Python**: Ensure Python 3 is installed.
-2**Pip**: Python's package manager for installing dependencies.
-3**Firefox**: A web browser to be automated.
-4**GeckoDriver**: A WebDriver implementation for Firefox.
+1. **Python**: Ensure Python 3 is installed.
+3. **Pip**: Python's package manager for installing dependencies.
+4. **Firefox**: A web browser to be automated.
+5. **GeckoDriver**: A WebDriver implementation for Firefox.
 
 ## Dependencies Installation
 **To avoid dependency conflicts, consider using a virtual environment**:
