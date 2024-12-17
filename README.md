@@ -14,7 +14,7 @@ This README provides the steps and requirements to run a Selenium script using F
    ```bash
    python -m venv venv
    source venv/bin/activate
-   pip install selenium
+   pip install -r requirements.txt
    ```
 
 ## Run the script:
