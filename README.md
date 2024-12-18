@@ -1,6 +1,6 @@
 # Unittest for SwagLabs
 
-This README provides the steps and requirements to run a Selenium script using Firefox on a SteamOS system.
+This README provides the steps and requirements to run an automation testing project for saucedemo.com page.
 
 ## Prerequisites
 
