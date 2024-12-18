@@ -1,4 +1,4 @@
-# SwagLabs - Selenium
+# Unittest for SwagLabs
 
 This README provides the steps and requirements to run a Selenium script using Firefox on a SteamOS system.
 
