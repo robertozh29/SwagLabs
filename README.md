@@ -1,13 +1,12 @@
-# Unittest for SwagLabs
+# Selenium test for SwagLabs
 
-This README provides the steps and requirements to run an automation testing project for saucedemo.com page.
+This Selenium project is designed to automate browser testing for https://www.saucedemo.com/ using Firefox and Geckodriver for the webdriver and unittest as the testing framework.
 
 ## Prerequisites
 
-1. **Python**: Ensure Python 3 is installed.
-3. **Pip**: Python's package manager for installing dependencies.
-4. **Firefox**: A web browser to be automated.
-5. **GeckoDriver**: A WebDriver implementation for Firefox.
+3. **Python**: Version 3.8 or later
+1. **Browser**: Firefox (latest version recommended).
+2. **GeckoDriver**: A WebDriver implementation for Firefox.
 
 ## Dependencies Installation
 **To avoid dependency conflicts, consider using a virtual environment**:
@@ -18,9 +17,15 @@ This README provides the steps and requirements to run an automation testing pro
    ```
 
 ## Run the script:
-```bash
-python -m unittest app.TestUsers
-```
+1. Navigate to the project directory:
+   ```bash
+   cd selenium-project/tests
+   ```
+
+2. Run a test script using Python:
+    ```bash
+    python -m unittest app.TestUsers
+    ```
 
 ## References
 - [Selenium Documentation](https://www.selenium.dev/documentation/)
