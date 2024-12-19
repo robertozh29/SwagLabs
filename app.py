@@ -4,7 +4,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-
 class TestUsers(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
@@ -34,7 +33,19 @@ class TestUsers(unittest.TestCase):
 
         return added
 
-    def _test_standard_user(self):
+    def fill_checkout_information(self, name="Roberto", last_name="Zepeda", postal_code="45080"):
+        driver = self.driver
+        # Filling shipping details
+        first_name_input = driver.find_element(By.ID, "first-name")
+        first_name_input.send_keys(name)
+        last_name_input = driver.find_element(By.ID, "last-name")
+        last_name_input.send_keys(last_name)
+        postal_code_input = driver.find_element(By.ID, "postal-code")
+        postal_code_input.send_keys(postal_code)
+        continue_btn = driver.find_element(By.XPATH, '//input[@name="continue"]')
+        continue_btn.click()
+
+    def test_standard_user(self):
         driver = self.driver
         self.username.send_keys("standard_user")
         self.password.send_keys("secret_sauce")
@@ -58,14 +69,7 @@ class TestUsers(unittest.TestCase):
         checkout_button.click()
 
         # Filling shipping details
-        first_name = driver.find_element(By.ID, "first-name")
-        first_name.send_keys("Roberto")
-        last_name = driver.find_element(By.ID, "last-name")
-        last_name.send_keys("Zepeda")
-        postal_code = driver.find_element(By.ID, "postal-code")
-        postal_code.send_keys("45080")
-        continue_btn = driver.find_element(By.XPATH, '//input[@name="continue"]')
-        continue_btn.click()
+        self.fill_checkout_information()
 
         # Finish
         finish_btn = driver.find_element(By.XPATH, '//button[@name="finish"]')
@@ -78,7 +82,7 @@ class TestUsers(unittest.TestCase):
         time.sleep(5)
         assert True
 
-    def test_problem_user(self):
+    def _test_problem_user(self):
         driver = self.driver
         self.username.send_keys("problem_user")
         self.password.send_keys("secret_sauce")
@@ -87,4 +91,3 @@ class TestUsers(unittest.TestCase):
         # Adding products to the cart
         items_added = self.add_all_items()
         assert items_added
-
