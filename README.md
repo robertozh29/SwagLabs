@@ -19,7 +19,7 @@ This README provides the steps and requirements to run an automation testing pro
 
 ## Run the script:
 ```bash
-python app.py
+python -m unittest app.TestUsers
 ```
 
 ## References
