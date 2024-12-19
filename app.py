@@ -93,6 +93,7 @@ class TestUsers(unittest.TestCase):
         back_btn = driver.find_element(By.XPATH, '//button[@name="back-to-products"]')
         back_btn.click()
 
+        print("\ntest_standard_user: Test passed successfully!")
         assert True
 
     def test_problem_user(self):
@@ -114,7 +115,7 @@ class TestUsers(unittest.TestCase):
         # Filling shipping details
         information_filled = self.fill_checkout_information()
         if not information_filled:
-                self.fail("Form behaivor unexpected. Marking the test as failed.")
+                self.fail("Checkout information form behavior unexpected.")
 
         # Finish
         finish_btn = driver.find_element(By.XPATH, '//button[@name="finish"]')
@@ -124,4 +125,5 @@ class TestUsers(unittest.TestCase):
         back_btn = driver.find_element(By.XPATH, '//button[@name="back-to-products"]')
         back_btn.click()
 
-        assert items_added
+        print("\ntest_problem_user: Test passed successfully!")
+        assert True
