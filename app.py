@@ -85,9 +85,10 @@ class TestUsers(unittest.TestCase):
         if not information_filled:
             self.fail("Checkout information fail. Marking the test as failed.")
 
-        # Finish
+        # Complete Purchase
         finish_btn = driver.find_element(By.XPATH, '//button[@name="finish"]')
         finish_btn.click()
+        time.sleep(3)
 
         # Returning home page
         back_btn = driver.find_element(By.XPATH, '//button[@name="back-to-products"]')
