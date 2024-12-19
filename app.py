@@ -83,7 +83,7 @@ class TestUsers(unittest.TestCase):
         # Filling shipping details
         information_filled = self.fill_checkout_information()
         if not information_filled:
-            self.fail("Checkout information form fail. Marking the test as failed.")
+            self.fail("Checkout information fail. Marking the test as failed.")
 
         # Finish
         finish_btn = driver.find_element(By.XPATH, '//button[@name="finish"]')
