@@ -16,17 +16,32 @@ class TestUsers(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test_standard_user(self):
+    def add_all_items(self):
         driver = self.driver
-        self.username.send_keys("standard_user")
-        self.password.send_keys("secret_sauce")
-        self.login.click()
 
         # Adding products to the cart
         items = driver.find_elements(By.CLASS_NAME, "inventory_item")
         for item in items:
             item_button = item.find_element(By.CLASS_NAME, "btn_primary.btn_small.btn_inventory")
             item_button.click()
+
+        # Validating if all items were added
+        cart_button = driver.find_element(By.ID, "shopping_cart_container")
+        cart_button.click()
+        cart_badge = driver.find_element(By.XPATH, '//span[@class="shopping_cart_badge"]')
+        cart_badge_val = int(cart_badge.text)
+        added = True if cart_badge_val == len(items) else False
+
+        return added
+
+    def _test_standard_user(self):
+        driver = self.driver
+        self.username.send_keys("standard_user")
+        self.password.send_keys("secret_sauce")
+        self.login.click()
+
+        # Adding products to the cart
+        self.add_all_items()
 
         cart_button = driver.find_element(By.ID, "shopping_cart_container")
         cart_button.click()
@@ -63,30 +78,13 @@ class TestUsers(unittest.TestCase):
         time.sleep(5)
         assert True
 
-    def _test_problem_user(self):
+    def test_problem_user(self):
         driver = self.driver
         self.username.send_keys("problem_user")
         self.password.send_keys("secret_sauce")
         self.login.click()
 
-        assert False
+        # Adding products to the cart
+        items_added = self.add_all_items()
+        assert items_added
 
-"""
-if __name__ == '__main__':
-    unittest.main()
-
-input_username = driver.find_element(By.ID, "user-name")
-input_username.send_keys(username)
-input_password = driver.find_element(By.ID, "password")
-input_password.send_keys(password)
-login_button = driver.find_element(By.ID, "login-button")
-login_button.click()
-
-items = driver.find_elements(By.CLASS_NAME, "inventory_item")
-
-for item in items:
-    item_button = item.find_element(By.CLASS_NAME, "btn_primary.btn_small.btn_inventory")
-    item_button.click()
-
-# driver.quit()
-"""
